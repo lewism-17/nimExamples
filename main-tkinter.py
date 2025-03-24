@@ -23,6 +23,39 @@ class Main(tk.Tk):
         self.canvasbutton = self.theCanvas.create_image(200,800,image = self.buttonPic)
         self.theCanvas.tag_bind(self.canvasbutton, "<Button-1>", self.canvasButtonClicked)
         
+        self.chipPic = tk.PhotoImage(file="chip.png")
+        self.piles = [7,5,3,1]
+        
+        x1 = 100
+        y1 = 700
+        for i in range(7):
+            self.theCanvas.create_image(x1,y1,image = self.chipPic)
+            x1 = x1+100
+
+        x2 = 200
+        y2 = 600
+        for i in range(5):
+            self.theCanvas.create_image(x2,y2,image = self.chipPic)
+            x2 = x2+100   
+
+        x3 = 300
+        y3 = 500
+        for i in range(3):
+            self.theCanvas.create_image(x3,y3,image = self.chipPic)
+            x3 = x3+100    
+
+        x4 = 400
+        y4 = 400
+        for i in range(1):
+            self.theCanvas.create_image(x4,y4,image = self.chipPic)
+            x4 = x4+100  
+
+        self.NewGameButton = tk.PhotoImage(file="NewGameButton.png")
+        self.theCanvas.create_image(200,800,image = self.NewGameButton)
+
+        self.PCMoveButton = tk.PhotoImage(file="PCMove.png")
+        self.theCanvas.create_image(600,800,image = self.PCMoveButton)
+
         self.movetext=None
         self.clickText = None
         self.buttonText = None
@@ -50,6 +83,9 @@ class Main(tk.Tk):
     def restorebutton(self):
         self.theCanvas.itemconfigure(self.canvasbutton,image=self.buttonPic )
 
+    #def drawPiles(self):
+   #     self.chipPic = tk.PhotoImage(file="chip.png")
+  #      self.theCanvas.create_image(300,700,image = self.chipPic)
 
 app = Main()
 
